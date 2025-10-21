@@ -1,114 +1,60 @@
 :root{
-  --bg-image: url('assets/background.jpg'); /* Ganti jika ingin permanen ke file lain */
-  --overlay: rgba(0,0,0,.45);
-  --text: #ffffff;
-  --muted: rgba(255,255,255,.75);
-  --chip-bg: rgba(255,255,255,.15);
-  --chip-hover: rgba(255,255,255,.25);
+  --text:#fff;
+  --accent:#1a73e8;
+  --card: rgba(255,255,255,.12);
+  --border: rgba(255,255,255,.18);
+  --bgfade-top: rgba(0,0,0,.55);
+  --bgfade-bottom: rgba(0,0,0,.55);
 }
-
 *{box-sizing:border-box}
 html,body{height:100%}
 body{
-  margin:0;
-  font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-  color:var(--text);
-  background: #0b1020;
-  min-height:100vh;
-  display:flex;
-  flex-direction:column;
-  overflow-x:hidden;
+  margin:0;font-family:'Poppins',system-ui,Segoe UI,Roboto,Arial,sans-serif;
+  color:var(--text);background:#0b1020;min-height:100vh;display:flex;flex-direction:column
 }
-
-.backdrop{
-  position:fixed; inset:0;
-  background-image: linear-gradient(180deg, rgba(10,10,20,.6), rgba(10,10,20,.6)), var(--bg-image);
-  background-size:cover; background-position:center; background-repeat:no-repeat;
-  filter: saturate(1.1);
-  z-index:-2;
+.bg{
+  position:fixed;inset:0;
+  background-image:linear-gradient(180deg,var(--bgfade-top),var(--bgfade-bottom)),url('background.jpg');
+  background-size:cover;background-position:center;z-index:-1;filter:saturate(1.1)
 }
+.top{display:flex;justify-content:space-between;align-items:center;padding:14px 16px 8px;background:linear-gradient(to bottom,rgba(0,0,0,.35),rgba(0,0,0,0))}
+.brand{font-weight:800;letter-spacing:.5px;font-size:clamp(20px,2.8vw,32px)}
+.right{display:flex;gap:8px}
+.ghost{border:1px solid var(--border);background:transparent;color:var(--text);border-radius:999px;padding:8px 14px;cursor:pointer}
 
-.topbar{
-  display:flex; align-items:center; justify-content:space-between;
-  padding: 14px clamp(16px, 4vw, 40px);
-  background: linear-gradient(to bottom, rgba(0,0,0,.45), rgba(0,0,0,0));
-  position:sticky; top:0;
-}
+.hero{display:flex;gap:14px;flex-wrap:wrap;align-items:stretch;justify-content:center;padding:8px 16px}
+.greeting{flex:1;min-width:260px;max-width:560px;background:var(--card);border:1px solid var(--border);border-radius:16px;padding:16px;text-align:center;backdrop-filter:blur(8px)}
+#hello{font-weight:800;font-size:clamp(18px,2.6vw,26px)}
+#clock{font-weight:800;font-size:clamp(36px,8vw,64px);letter-spacing:1px;line-height:1;margin-top:6px}
+#date{opacity:.85;margin-top:6px}
 
-.brand{
-  font-weight:800; letter-spacing:.5px; font-size: clamp(18px, 2.2vw, 28px);
-  text-shadow: 0 2px 20px rgba(0,0,0,.35);
-}
+.weather{flex:1;min-width:260px;max-width:560px;background:var(--card);border:1px solid var(--border);border-radius:16px;padding:16px;backdrop-filter:blur(8px)}
+.w-main{font-weight:700;margin-bottom:6px}
 
-.actions{display:flex; gap:10px; align-items:center;}
-.file-btn, .ghost{
-  cursor:pointer;
-  border:1px solid rgba(255,255,255,.25);
-  padding:8px 14px; border-radius:999px;
-  background:rgba(0,0,0,.25);
-  color:var(--text);
-  font-weight:600;
-  backdrop-filter: blur(6px);
-}
-.file-btn:hover,.ghost:hover{background:rgba(255,255,255,.12)}
-
-.center{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  text-align:center;
-  padding: clamp(30px, 6vw, 80px) 20px 40px;
-  gap:22px;
-}
-
-.logo{
-  font-size: clamp(40px, 9vw, 88px);
-  margin: 10vh 0 0;
-  line-height:1.1;
-  letter-spacing: -1px;
-  font-weight:800;
-  text-shadow: 0 10px 30px rgba(0,0,0,.55);
-}
-
+.center{display:flex;flex-direction:column;align-items:center;padding:20px 16px 30px;gap:16px}
 .search{
-  display:flex; gap:10px; width:min(800px, 92vw);
-  background: rgba(255,255,255,.15);
-  padding:10px; border-radius:999px;
-  backdrop-filter: blur(8px);
-  box-shadow: 0 15px 40px rgba(0,0,0,.25);
+  display:flex;gap:8px;width:min(760px,94vw);background:var(--card);
+  border:1px solid var(--border);padding:10px;border-radius:999px;backdrop-filter:blur(8px);
+  box-shadow:0 15px 40px rgba(0,0,0,.25)
 }
-.search input{
-  flex:1; border:none; outline:none; background: transparent;
-  color:#fff; font-size: clamp(14px, 2.6vw, 18px);
-  padding:12px 16px;
-}
-.search .submit{
-  border:none; border-radius:999px; padding:12px 18px; font-weight:700;
-  background: #4285F4; color:white; cursor:pointer;
-}
-.search .submit:hover{opacity:.9}
+.search input{flex:1;border:none;outline:none;background:transparent;color:#fff;padding:12px 14px;font-size:16px}
+.search button{border:none;border-radius:999px;padding:12px 18px;font-weight:800;background:var(--accent);color:#fff;cursor:pointer}
 
-.chips{display:flex; gap:10px; flex-wrap:wrap; justify-content:center; margin-top:8px}
-.chips a{
-  text-decoration:none; color:var(--text);
-  background: var(--chip-bg);
-  padding:8px 14px; border-radius:999px; font-weight:600;
-  backdrop-filter: blur(6px);
-  border:1px solid rgba(255,255,255,.2);
-}
-.chips a:hover{background: var(--chip-hover)}
+.chips{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.chips a{text-decoration:none;color:#fff;background:var(--accent);padding:10px 14px;border-radius:999px;font-weight:700}
+.chips a.alt{background:var(--card);border:1px solid var(--border)}
 
-.foot{
-  margin-top:auto;
-  padding: 18px clamp(16px, 4vw, 40px);
-  font-size:14px; color:var(--muted);
-  text-align:center;
-  background: linear-gradient(to top, rgba(0,0,0,.45), rgba(0,0,0,0));
-}
+.foot{margin-top:auto;text-align:center;color:rgba(255,255,255,.8);padding:18px}
 
-/* Small screens */
-@media (max-width: 480px){
-  .topbar{padding:12px 14px}
-  .search{padding:6px}
-  .search .submit{padding:10px 14px}
-}
+dialog::backdrop{background:rgba(0,0,0,.5)}
+dialog{border:none;border-radius:16px;padding:0;max-width:520px;width:92vw}
+.settings-form{padding:16px;background:#111827;color:#fff;border:1px solid var(--border);border-radius:16px}
+.settings-form h3{margin:0 0 12px}
+.settings-form label{display:grid;gap:6px;margin-bottom:10px}
+.settings-form input{padding:10px;border-radius:10px;border:1px solid #333;background:#0f172a;color:#fff}
+.settings-form menu{display:flex;justify-content:flex-end;gap:8px;padding:0;margin:10px 0 0}
+
+/* Light mode */
+body.light{--text:#111;--card:rgba(0,0,0,.05);--border:rgba(0,0,0,.12);--bgfade-top:rgba(255,255,255,.45);--bgfade-bottom:rgba(255,255,255,.45)}
+body.light .chips a{color:#fff}
+body.light .chips a.alt{color:#111}
