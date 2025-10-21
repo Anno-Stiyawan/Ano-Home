@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ANNO STIYAWAN Search</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <div class="backdrop"></div>
+
+  <header class="topbar">
+    <div class="brand">ANNO STIYAWAN</div>
+    <div class="actions">
+      <label class="file-btn">
+        <input id="bgPicker" type="file" accept="image/*" hidden>
+        Pilih Foto
+      </label>
+      <button id="resetBg" class="ghost">Reset</button>
+    </div>
+  </header>
+
+  <main class="center">
+    <h1 class="logo">ANNO STIYAWAN</h1>
+    <form action="https://www.google.com/search" method="get" class="search">
+      <input type="text" name="q" placeholder="Cari di Google..." aria-label="Ketik kata kunci" autofocus>
+      <button type="submit" class="submit">Search</button>
+    </form>
+
+    <div class="chips">
+      <a href="https://mail.google.com/" target="_blank" rel="noopener">Gmail</a>
+      <a href="https://images.google.com/" target="_blank" rel="noopener">Gambar</a>
+      <a href="https://drive.google.com/" target="_blank" rel="noopener">Drive</a>
+      <a href="https://news.google.com/" target="_blank" rel="noopener">News</a>
+      <a href="https://maps.google.com/" target="_blank" rel="noopener">Maps</a>
+    </div>
+  </main>
+
+  <footer class="foot">
+    <span>Made for ANNO STIYAWAN • Custom Google-style homepage</span>
+  </footer>
+
+  <script src="assets/script.js"></script>
+</body>
+</html>
