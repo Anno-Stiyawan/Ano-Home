@@ -1,49 +1,68 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ANNO STIYAWAN Search</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <title>ANNO STIYAWAN — Pro</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/style.css">
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="backdrop"></div>
+  <div class="bg"></div>
 
-  <header class="topbar">
+  <header class="top">
     <div class="brand">ANNO STIYAWAN</div>
-    <div class="actions">
-      <label class="file-btn">
-        <input id="bgPicker" type="file" accept="image/*" hidden>
-        Pilih Foto
-      </label>
-      <button id="resetBg" class="ghost">Reset</button>
+    <div class="right">
+      <button id="toggleMode" class="ghost">Dark</button>
+      <button id="openSettings" class="ghost">⚙️</button>
     </div>
   </header>
 
+  <section class="hero">
+    <div class="greeting">
+      <div id="hello">Selamat Datang</div>
+      <div id="clock">--:--</div>
+      <div id="date">—</div>
+    </div>
+    <div class="weather" id="weather">
+      <div class="w-main">Cuaca: <span id="w-text">mencari lokasi…</span></div>
+      <div class="w-sub"><span id="w-temp"></span> <span id="w-place"></span></div>
+    </div>
+  </section>
+
   <main class="center">
-    <h1 class="logo">ANNO STIYAWAN</h1>
     <form action="https://www.google.com/search" method="get" class="search">
       <input type="text" name="q" placeholder="Cari di Google..." aria-label="Ketik kata kunci" autofocus>
-      <button type="submit" class="submit">Search</button>
+      <button type="submit">Search</button>
     </form>
 
-    <div class="chips">
-      <a href="https://mail.google.com/" target="_blank" rel="noopener">Gmail</a>
-      <a href="https://images.google.com/" target="_blank" rel="noopener">Gambar</a>
-      <a href="https://drive.google.com/" target="_blank" rel="noopener">Drive</a>
-      <a href="https://news.google.com/" target="_blank" rel="noopener">News</a>
-      <a href="https://maps.google.com/" target="_blank" rel="noopener">Maps</a>
-    </div>
+    <div class="chips" id="quickLinks"></div>
   </main>
 
-  <footer class="foot">
-    <span>Made for ANNO STIYAWAN • Custom Google-style homepage</span>
-  </footer>
+  <footer class="foot">Pro variant • greeting + clock • geolocation weather • quick admin shortcuts</footer>
 
-  <script src="assets/script.js"></script>
+  <!-- Settings -->
+  <dialog id="settings">
+    <form method="dialog" class="settings-form">
+      <h3>Pengaturan Tautan</h3>
+      <label>Qyara Login URL
+        <input id="cfg-qyara" type="url" placeholder="https://contoh-login.qyara.net/login">
+      </label>
+      <label>RouterOS URL (WebFig/Winbox Web)
+        <input id="cfg-routeros" type="url" placeholder="http://192.168.88.1/">
+      </label>
+      <label>Mikhmon URL
+        <input id="cfg-mikhmon" type="url" placeholder="http://192.168.88.2/mikhmon/">
+      </label>
+      <menu>
+        <button value="cancel" class="ghost">Batal</button>
+        <button id="saveSettings" value="default">Simpan</button>
+      </menu>
+      <small>Disimpan di browser (localStorage) perangkat ini.</small>
+    </form>
+  </dialog>
+
+  <script src="script.js"></script>
 </body>
 </html>
