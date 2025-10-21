@@ -33,7 +33,7 @@ function updateClock(){
   if (h>=4 && h<11) greet='Selamat Pagi';
   else if (h>=11 && h<15) greet='Selamat Siang';
   else if (h>=15 && h<18) greet='Selamat Sore';
-  byId('hello').textContent = `${greet}, ANNO STIYAWAN`;
+  byId('hello').textContent = `${greet}, Ano Stiyawan`;
 }
 updateClock(); setInterval(updateClock, 30*1000);
 
