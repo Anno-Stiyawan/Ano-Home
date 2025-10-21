@@ -3,65 +3,60 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Ano Stiyawan — Pro</title>
+  <title>Ano Network Portal</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
   <div class="bg"></div>
 
+  <!-- HEADER -->
   <header class="top">
-    <div class="brand">Ano Stiyawan</div>
+    <div class="brand">Ano Network</div>
     <div class="right">
       <button id="toggleMode" class="ghost">Dark</button>
       <button id="openSettings" class="ghost">⚙️</button>
     </div>
   </header>
 
+  <!-- HERO -->
   <section class="hero">
     <div class="greeting">
-      <div id="hello">Selamat Datang</div>
+      <div id="hello">Selamat Datang di Portal Ano Network</div>
       <div id="clock">--:--</div>
-      <div id="date">—</div>
+      <div id="date"></div>
     </div>
+
     <div class="weather" id="weather">
-      <div class="w-main">Cuaca di sabatang: <span id="w-text">mencari lokasi...</span></div>
+      <div class="w-main">Cuaca Sabatang: <span id="w-text">mencari lokasi...</span></div>
       <div class="w-sub"><span id="w-temp"></span> <span id="w-place"></span></div>
     </div>
   </section>
 
-  <main class="center">
-    <form action="https://www.google.com/search" method="get" class="search">
-      <input type="text" name="q" placeholder="Cari di Google..." aria-label="Ketik kata kunci" autofocus>
+  <!-- SEARCH -->
+  <section class="search">
+    <form action="https://www.google.com/search" method="get" target="_blank">
+      <input type="text" name="q" placeholder="Cari di Google..." required>
       <button type="submit">Search</button>
     </form>
+  </section>
 
-    <div class="chips" id="quickLinks"></div>
-  </main>
+  <!-- LINKS -->
+  <section class="links">
+    <button onclick="window.open('https://contoh-login.qyara.net/login','_blank')">Qyara Login</button>
+    <button onclick="window.open('http://192.168.88.1','_blank')">RouterOS</button>
+    <button onclick="window.open('http://192.168.88.2/mikhmon','_blank')">Mikhmon</button>
+    <button onclick="window.open('https://mail.google.com','_blank')">Gmail</button>
+    <button onclick="window.open('https://drive.google.com','_blank')">Drive</button>
+    <button onclick="window.open('https://maps.google.com','_blank')">Maps</button>
+  </section>
 
-  <footer class="foot">Pro variant • greeting + clock • geolocation weather • quick admin shortcuts</footer>
-
-  <!-- Settings -->
-  <dialog id="settings">
-    <form method="dialog" class="settings-form">
-      <h3>Pengaturan Tautan</h3>
-      <label>Qyara Login URL
-        <input id="cfg-qyara" type="url" placeholder="https://contoh-login.qyara.net/login">
-      </label>
-      <label>RouterOS URL (WebFig/Winbox Web)
-        <input id="cfg-routeros" type="url" placeholder="http://192.168.88.1/">
-      </label>
-      <label>Mikhmon URL
-        <input id="cfg-mikhmon" type="url" placeholder="http://192.168.88.2/mikhmon/">
-      </label>
-      <menu>
-        <button value="cancel" class="ghost">Batal</button>
-        <button id="saveSettings" value="default">Simpan</button>
-      </menu>
-      <small>Disimpan di browser (localStorage) perangkat ini.</small>
-    </form>
-  </dialog>
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 Qyara Network – Powered by Anno Stiyawan</p>
+  </footer>
 
   <script src="script.js"></script>
 </body>
